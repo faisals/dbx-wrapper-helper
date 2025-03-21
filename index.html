@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBX Wrapper Helper</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>DBX Wrapper Helper</h1>
+            <div class="header-subtitle">SQL script standardization tool</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="description">
+            <p>Create standardized SQL scripts with appropriate wrappers for your database changes. This tool helps developers quickly generate properly formatted scripts for various database types.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                    Project Information
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="project-code">Project Code</label>
+                        <input type="text" id="project-code" placeholder="E.g. KY" value="KY">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="tfs-ticket">TFS Ticket Number <span style="color: #ef4444;">*</span></label>
+                        <input type="text" id="tfs-ticket" placeholder="E.g. 36526" required>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="start-script-number">Starting Script Number</label>
+                        <input type="text" id="start-script-number" placeholder="E.g. 001" value="001">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" placeholder="Your name">
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    Script Details
+                </div>
+            </div>
+            
+            <div id="scripts-container">
+                <!-- Script boxes will be dynamically added here -->
+            </div>
+            
+            <div class="add-script-container">
+                <button class="add-script-btn" id="add-script-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    Add Another Script
+                </button>
+            </div>
+            
+            <div class="form-group" style="text-align: center; margin-top: 1.5rem;">
+                <button id="generate-all-btn" class="btn btn-success">
+                    <i class="fas fa-cogs"></i>
+                    Generate All Scripts
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="card-icon"><i class="fas fa-file-code"></i></div>
+                    Generated Scripts
+                </div>
+            </div>
+            
+            <div id="scripts-list">
+                <div style="text-align: center; color: var(--medium-text); padding: 2rem 0;">
+                    No scripts generated yet. Fill in the script details and click "Generate All Scripts".
+                </div>
+            </div>
+
+            <div class="download-all hidden" id="download-all-container">
+                <button id="download-all-btn" class="btn btn-success">
+                    <i class="fas fa-download"></i>
+                    Download All Scripts
+                </button>
+            </div>
+        </div>
+        
+        <div id="template-status-container"></div>
+    </div>
+    
+    <footer>
+        DBX Wrapper Helper &copy; <span id="current-year"></span> 
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
